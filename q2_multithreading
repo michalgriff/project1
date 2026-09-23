@@ -15,19 +15,17 @@ def worker(n):
 
 
 if __name__ == "__main__":
-    N = 62_000_000
+    N = 8_765_324
 
     start_time = time.perf_counter()
 
     threads = []
 
-    # Create and start 10 threads
     for i in range(10):
         thread = threading.Thread(target=worker, args=(N,))
         threads.append(thread)
         thread.start()
 
-    # Wait for all threads to finish
     for thread in threads:
         thread.join()
 
